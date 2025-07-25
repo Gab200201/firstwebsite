@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel Cosme Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf6ee;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #7c4d00;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('123.jpg') center/cover fixed no-repeat;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px 40px;
+      border-radius: 10px;
+      animation: fadeInUp 2s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      background-color: #fdf6ee;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery img:active {
+      transform: scale(0.95);
+    }
+
+    /* Optional smooth scroll section anchor padding */
+    #portfolio {
+      scroll-margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Gabriel Cosme</h1>
+    <nav>
+      <a href="#portfolio">Portfolio</a>
+      <a href="mailto:gcosme420@gmail.com">Email</a>
+      <a href="https://www.instagram.com/gabcosme012002/" target="_blank">Instagram</a>
+      <a href="resume.pdf" download>Download Resume</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Capture Life’s Best Moments</h2>
+  </section>
+
+  <section class="gallery" id="portfolio">
+    <img src="image (1).png" alt="Photo 1">
+    <img src="_DSC0308.jpg" alt="Photo 2">
+    <img src="484930835_1055133099967573_8448691600309141086_n.jpg" alt="Photo 3">
+    <img src="464692003_8707395945980106_1033513863414460498_n.jpg" alt="Photo 4">
+    <img src="484316992_1051791913635025_5208747776289049139_n.jpg" alt="Photo 5">
+    <img src="123.jpg" alt="Photo 6">
+    <img src="484375026_1051791800301703_1876187585455477692_n.jpg" alt="Photo 7">
+    <img src="484731720_1051791840301699_4470514104921703461_n.jpg" alt="Photo 8">
+    <img src="481705284_1045044090976474_6354687120988096081_n.jpg" alt="Photo 9">
+    <img src="482025798_1045599244254292_2599258162353182898_n.jpg" alt="Photo 10">
+    <img src="481703257_1045044054309811_9210950822873163405_n.jpg" alt="Photo 11">
+    <img src="482980564_1051791040301779_1083317216821673652_n.jpg" alt="Photo 12">
+    <img src="484067260_1051791780301705_5462254169786105174_n.jpg" alt="Photo 13">
+    <img src="1122115.png" alt="Photo 14">
+    <img src="55555.png" alt="Photo 15">
+    <img src="482977856_1051791353635081_4393968108720221270_n.jpg" alt="Photo 16">
+  </section>
+</body>
+
+</html>
