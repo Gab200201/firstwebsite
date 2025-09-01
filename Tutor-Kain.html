@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUTOR-KAIN | Community Learning & Feeding Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Marked.js for rendering markdown from Gemini API -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Custom Cream Color */
+        .bg-cream {
+            background-color: #FFFBEB;
+        }
+        /* Simple spinner for loading state */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #10B981;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Styles for generated content */
+        #lesson-plan-output h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        #lesson-plan-output ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+         #lesson-plan-output p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-cream text-gray-900">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold font-poppins text-emerald-800">
+                    TUTOR-KAIN
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-emerald-600 transition duration-300">About</a>
+                    <a href="#program" class="text-gray-600 hover:text-emerald-600 transition duration-300">The Program</a>
+                    <a href="#resources" class="text-gray-600 hover:text-emerald-600 transition duration-300">Resources</a>
+                    <a href="#join" class="text-gray-600 hover:text-emerald-600 transition duration-300">Get Involved</a>
+                </nav>
+                <a href="#join" class="hidden md:inline-block bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg hover:bg-orange-600 transition duration-300 shadow-md">
+                    Sponsor
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#about" class="block py-2 text-gray-600 hover:text-emerald-600">About</a>
+                <a href="#program" class="block py-2 text-gray-600 hover:text-emerald-600">The Program</a>
+                <a href="#resources" class="block py-2 text-gray-600 hover:text-emerald-600">Resources</a>
+                <a href="#join" class="block py-2 text-gray-600 hover:text-emerald-600">Get Involved</a>
+                <a href="#join" class="block mt-2 bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg text-center hover:bg-orange-600 transition duration-300 shadow-md">Sponsor</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-white pt-32 pb-20 md:pt-40 md:pb-28">
+            <div class="container mx-auto px-6 text-center">
+                <span class="text-emerald-700 font-semibold">Welcome to Tutor-Kain</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold font-poppins mt-4 mb-6 leading-tight text-gray-900">
+                    A Community-Based Learning <br class="hidden md:inline"/> & Feeding Program
+                </h1>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+                    We believe every child deserves a chance to learn and grow without hunger. Our program combines free tutorials with nutritious meals to create a fun, practical, and supportive learning environment.
+                </p>
+                <a href="#program" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300 shadow-lg text-lg">
+                    Discover Our Program
+                </a>
+            </div>
+        </section>
+
+        <!-- About/Concept Section -->
+        <section id="about" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <span class="text-emerald-700 font-semibold">Our Concept</span>
+                        <h2 class="text-3xl md:text-4xl font-bold font-poppins mt-2 mb-6">Making Learning Fun, Practical, and Community-Driven</h2>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Tutor-Kain is a community program that offers free tutorials in essential subjects while providing simple, wholesome meals and a motivating reward system.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Our goal is to create a positive feedback loop where education and nutrition support each other, empowering students to succeed and building a stronger, more connected community.
+                        </p>
+                    </div>
+                    <div class="order-1 md:order-2 flex justify-center">
+                         <div class="bg-white p-8 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.5tXczl2Osz9fB1Sfr8o-DQHaD9?pid=Api&P=0&h=220" alt="A photo of a volunteer teaching young students in a community learning session." class="rounded-lg">
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Program Section -->
+        <section id="program" class="bg-white py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-emerald-700 font-semibold">How It Works</span>
+                    <h2 class="text-3xl md:text-4xl font-bold font-poppins mt-2">Our Three Pillars of Support</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <!-- Card 1: Study Meal Share -->
+                    <div class="bg-cream p-8 rounded-2xl border border-emerald-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-emerald-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0c-.454-.303-.977-.454-1.5-.454V5.73c0-1.242.988-2.25 2.22-2.25h11.56c1.232 0 2.22 1.008 2.22 2.25v9.816zM12 12V9m0 3H9m3 0h3m-3 3v-3m0 0H9m3 0h3"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold font-poppins mb-3">Study Meal Share</h3>
+                        <p class="text-gray-700">Simple, nutritious food like bread, porridge, or biscuits are provided during sessions to ensure students are full and focused while studying.</p>
+                    </div>
+
+                    <!-- Card 2: What We Teach -->
+                    <div class="bg-cream p-8 rounded-2xl border border-emerald-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-emerald-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-9-5.747h18"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold font-poppins mb-3">What We Teach</h3>
+                        <p class="text-gray-700">Our volunteer tutors cover essential subjects including <span class="font-semibold">Basic Math</span>, <span class="font-semibold">Practical English</span>, and fundamental <span class="font-semibold">Digital Skills</span> to prepare them for the future.</p>
+                    </div>
+
+                    <!-- Card 3: Learning Coupons -->
+                    <div class="bg-cream p-8 rounded-2xl border border-emerald-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-emerald-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold font-poppins mb-3">Learning Coupons</h3>
+                        <p class="text-gray-700">Students earn coupons for attendance and participation, which can be redeemed for school supplies, snacks, or local store discounts, motivating them to keep learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Resources Section -->
+        <section id="resources" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-emerald-700 font-semibold">Volunteer Resources</span>
+                    <h2 class="text-3xl md:text-4xl font-bold font-poppins mt-2">Lesson Plan Generator</h2>
+                    <p class="text-lg text-gray-700 max-w-2xl mx-auto mt-4">
+                        Need inspiration for your next tutoring session? Select a subject, enter a topic, and let our AI assistant create a simple, fun lesson plan for you!
+                    </p>
+                </div>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <option>Basic Math</option>
+                                <option>Practical English</option>
+                                <option>Digital Skills</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="topic" class="block text-sm font-medium text-gray-700 mb-2">Topic (e.g., "Addition", "Greetings")</label>
+                            <input type="text" id="topic" name="topic" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter lesson topic">
+                        </div>
+                    </div>
+                    <button id="generate-btn" class="w-full bg-orange-500 text-white font-bold text-lg px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300 flex items-center justify-center gap-2">
+                        ✨ Generate Lesson Idea
+                    </button>
+
+                    <div id="loading-indicator" class="mt-8 flex-col items-center justify-center hidden">
+                        <div class="loader"></div>
+                        <p class="text-gray-600 mt-4">Generating your lesson plan...</p>
+                    </div>
+                    
+                    <div id="error-message" class="mt-6 text-red-600 text-center hidden"></div>
+
+                    <div id="lesson-plan-output" class="mt-8 p-6 bg-cream rounded-lg border border-emerald-200 hidden prose max-w-none">
+                        <!-- Generated lesson plan will appear here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Get Involved Section -->
+        <section id="join" class="bg-white py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="bg-emerald-800 text-white rounded-2xl p-12 text-center shadow-2xl">
+                    <h2 class="text-3xl md:text-4xl font-bold font-poppins">Join Us in Making a Difference</h2>
+                    <p class="max-w-2xl mx-auto mt-4 mb-8 text-emerald-100">
+                        Our program is powered by the generosity of our community. You can help by becoming a sponsor, volunteering your time as a tutor, or donating supplies.
+                    </p>
+                     <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="#" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300">Become a Sponsor</a>
+                        <a href="#" class="bg-yellow-400 text-gray-900 font-bold px-8 py-3 rounded-lg hover:bg-yellow-500 transition duration-300">Volunteer Today</a>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meanwhile Online Section -->
+        <section id="online" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="flex justify-center">
+                         <div class="bg-cream p-8 rounded-2xl shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                            <img src="https://capetown.today/wp-content/uploads/2023/06/boobtrpn.jpg" alt="A volunteer assisting a young student with their homework at a Tutor-Kain session." class="rounded-lg">
+                         </div>
+                    </div>
+                    <div>
+                        <span class="text-emerald-700 font-semibold">Stay Connected</span>
+                        <h2 class="text-3xl md:text-4xl font-bold font-poppins mt-2 mb-6">Meanwhile, Online...</h2>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                           Follow our journey and see the impact we're making in the community! We share updates, stories, and photos from our tutoring sessions on our social media pages.
+                        </p>
+                        <p class="text-gray-700 mb-8 leading-relaxed">
+                           Join our growing online family to stay informed about events, volunteer opportunities, and how your support is changing lives.
+                        </p>
+                        <a href="#" class="bg-emerald-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-emerald-700 transition duration-300">Follow Us on Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <p class="text-2xl font-bold font-poppins text-emerald-400 mb-2">TUTOR-KAIN</p>
+            <p class="text-gray-400 mb-6">Empowering communities, one child at a time.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Email Us</a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 TUTOR-KAIN. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Gemini API Feature: Lesson Plan Generator
+        const generateBtn = document.getElementById('generate-btn');
+        const subjectSelect = document.getElementById('subject');
+        const topicInput = document.getElementById('topic');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const lessonPlanOutput = document.getElementById('lesson-plan-output');
+        const errorMessage = document.getElementById('error-message');
+
+        generateBtn.addEventListener('click', async () => {
+            const subject = subjectSelect.value;
+            const topic = topicInput.value.trim();
+
+            if (!topic) {
+                errorMessage.textContent = 'Please enter a topic for the lesson plan.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            loadingIndicator.style.display = 'flex';
+            lessonPlanOutput.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            generateBtn.disabled = true;
+
+            const userQuery = `Generate a simple and fun 30-minute lesson plan for young Filipino children (ages 7-9) on the topic of '${topic}' within the subject of '${subject}'. The lesson should be engaging and use materials commonly found in a community center, like paper, pencils, and recycled items. Structure the response in Markdown with the following sections: '### Objective', '### Materials', '### Warm-Up (5 mins)', '### Main Activity (15 mins)', and '### Wrap-Up Game (10 mins)'.`;
+            
+            try {
+                const generatedText = await callGemini(userQuery);
+                // Use marked.js to convert Markdown to HTML
+                lessonPlanOutput.innerHTML = marked.parse(generatedText);
+                lessonPlanOutput.classList.remove('hidden');
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                errorMessage.textContent = 'Sorry, we couldn\'t generate a lesson plan at this time. Please try again later.';
+                errorMessage.classList.remove('hidden');
+            } finally {
+                loadingIndicator.style.display = 'none';
+                generateBtn.disabled = false;
+            }
+        });
+
+        async function callGemini(prompt) {
+            const apiKey = ""; // API key will be automatically managed by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+            };
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API call failed with status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            const candidate = result.candidates?.[0];
+
+            if (candidate && candidate.content?.parts?.[0]?.text) {
+                return candidate.content.parts[0].text;
+            } else {
+                 throw new Error("Unexpected response format from API.");
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
